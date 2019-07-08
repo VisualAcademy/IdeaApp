@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using IdeaApp.Core.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using IdeaApp.Models;
 
 namespace IdeaApp.Core
 {
@@ -43,6 +44,9 @@ namespace IdeaApp.Core
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //[IdeaManager]: 아이디어 관리자: ASP.NET Core부터 Angular까지 A to Z 
+            services.AddTransient<IIdeaRepository, IdeaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
